@@ -1,5 +1,6 @@
-package com.silber.vendas.adapters.out.repository;
+package com.silber.vendas.adapters.out;
 
+import com.silber.vendas.adapters.out.repository.SaleRepository;
 import com.silber.vendas.adapters.out.repository.mapper.SaleEntityMapper;
 import com.silber.vendas.application.core.domain.Sale;
 import com.silber.vendas.application.ports.out.SaveSaleOutputPort;
