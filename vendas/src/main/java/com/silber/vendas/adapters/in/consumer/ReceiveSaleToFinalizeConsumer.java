@@ -22,7 +22,5 @@ public class ReceiveSaleToFinalizeConsumer {
             finalizeSaleInputPort.finalize(saleMessage.getSale());
             log.info("Venda finalizada com sucesso");
         }
-
-
     }
 }

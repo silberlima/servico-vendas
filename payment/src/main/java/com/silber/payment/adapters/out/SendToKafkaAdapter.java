@@ -1,17 +1,18 @@
-package com.silber.inventory.adapters.out;
+package com.silber.payment.adapters.out;
 
-import com.silber.inventory.adapters.out.message.SaleMessage;
-import com.silber.inventory.application.core.domain.Sale;
-import com.silber.inventory.application.core.domain.enums.SaleEvent;
-import com.silber.inventory.application.ports.out.SendUpdateInventoryOutputPort;
+import com.silber.payment.adapters.out.message.SaleMessage;
+import com.silber.payment.application.core.domain.Sale;
+import com.silber.payment.application.core.domain.enums.SaleEvent;
+import com.silber.payment.application.ports.out.SendToKafkaOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SendUpdateInventoryAdapter implements SendUpdateInventoryOutputPort {
+public class SendToKafkaAdapter implements SendToKafkaOutputPort {
     @Autowired
     private KafkaTemplate<String, SaleMessage> kafkaTemplate;
+
     @Override
     public void send(Sale sale, SaleEvent saleEvent) {
         var saleMessage = new SaleMessage(sale, saleEvent);

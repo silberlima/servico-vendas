@@ -1,9 +1,8 @@
 package com.silber.payment.config.usecase;
 
 import com.silber.payment.adapters.out.SavePaymentAdapter;
-import com.silber.payment.adapters.out.SendValidatedPaymentAdapter;
+import com.silber.payment.adapters.out.SendToKafkaAdapter;
 import com.silber.payment.adapters.out.UpdateUserAdapter;
-import com.silber.payment.application.core.domain.Sale;
 import com.silber.payment.application.core.usecase.FindUserByIdUseCase;
 import com.silber.payment.application.core.usecase.SalePaymentUserCase;
 import org.springframework.context.annotation.Bean;
@@ -17,12 +16,12 @@ public class SalePaymentConfig {
             FindUserByIdUseCase findUserByIdUseCase,
             UpdateUserAdapter updateUserAdapter,
             SavePaymentAdapter savePaymentAdapter,
-            SendValidatedPaymentAdapter sendValidatedPaymentAdapter
+            SendToKafkaAdapter sendToKafkaAdapter
     ){
         return new SalePaymentUserCase(findUserByIdUseCase,
                     updateUserAdapter,
                     savePaymentAdapter,
-                    sendValidatedPaymentAdapter);
+                    sendToKafkaAdapter);
 
     }
 }
